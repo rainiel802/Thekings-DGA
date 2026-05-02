@@ -1,329 +1,524 @@
-/* --- Estilos Base --- */
+/* 
+    THEKINGS DGA - Official Stylesheet
+    Theme: Cyber-Industrial Luxury
+*/
+
+/* ===== VARIABLES ===== */
 :root {
-    --bg-black: #000000;
+    --bg-black: #000;
+    --card-bg: #0a0a0a;
     --text-white: #ffffff;
-    --gray-text: #cccccc;
-    --metallic-gradient: linear-gradient(180deg, #ffffff 0%, #a5a5a5 100%);
+    --gray-text: #888888;
+    --metallic-silver: linear-gradient(180deg, #ffffff 0%, #a5a5a5 100%);
+    --chrome-glow: 0 0 15px rgba(255, 255, 255, 0.2);
+    --border-color: #222222;
+    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--bg-black);
     color: var(--text-white);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    margin: 0;
-    padding: 0;
+    overflow-x: hidden;
 }
 
-/* --- Navbar --- */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    border-bottom: 1px solid #333;
-}
-
-.logo img {
-    height: 50px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-white);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-
-/* --- Hero Section --- */
-.hero {
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: radial-gradient(circle, #111 0%, #000 100%);
-}
-
-.hero h1 {
-    font-size: 60px;
-    font-weight: 800;
-    margin-bottom: 10px;
-    background: var(--metallic-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
-}
-
-.hero p {
-    font-size: 18px;
-    color: var(--gray-text);
-    margin-bottom: 30px;
-}
-
-.btn-hero {
-    display: inline-block;
-    padding: 15px 40px;
-    background: var(--metallic-gradient);
-    color: #000;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 4px;
-    text-transform: uppercase;
-    transition: transform 0.2s;
-}
-
-/* --- Seccion Productos --- */
-.products-section {
-    padding: 60px 5%;
-}
-
-.main-title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 50px;
-    letter-spacing: 2px;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.product-card {
-    background-color: #000;
-    border: 1px solid #222;
-    padding-bottom: 20px;
-    text-align: center;
-}
-
-.product-img img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.product-info h3 {
-    font-size: 16px;
-    font-weight: 400;
-    margin: 20px 0 10px;
-    padding: 0 10px;
-}
-
-.price {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-/* --- Botón Añadir (Copia fiel) --- */
-.add-to-cart {
-    width: 90%;
-    padding: 12px;
-    background: transparent;
-    color: white;
-    border: 1px solid white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.add-to-cart:hover {
-    background: white;
-    color: black;
-}
-
-/* --- Contenedor Principal del Header --- */
+/* ===== NAVBAR (Sticky & Glass) ===== */
 .main-header {
-    background-color: #000000;
-    border-bottom: 1px solid #333333; /* Línea sutil de separación */
-    width: 100%;
     position: sticky;
     top: 0;
     z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
 }
 
-/* --- Layout del Navbar --- */
 .navbar {
     display: grid;
-    grid-template-columns: 1fr auto 1fr; /* Divide en 3 áreas: logo, links, carrito */
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 15px 5%;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-/* --- Logo --- */
-.logo img {
-    height: 45px; /* Tamaño equilibrado */
-    display: block;
+.logo img { 
+    height: 42px; 
+    transition: var(--transition);
 }
 
-/* --- Menú de Navegación (CENTRADO) --- */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 40px; /* Espaciado entre palabras */
-    margin: 0;
-    padding: 0;
+    gap: 35px;
 }
 
-.nav-links li a {
+.nav-links a {
     text-decoration: none;
-    color: #ffffff;
-    font-family: 'Inter', sans-serif;
-    font-weight: 800; /* Tipografía gruesa como en la imagen */
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-    color: #8a8a8a; /* Cambio a gris metálico al pasar el mouse */
-}
-
-/* --- Carrito (DERECHA) --- */
-.cart-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: #ffffff;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    gap: 8px;
-}
-
-.cart-icon {
-    font-size: 18px;
-}
-
-#cart-count {
-    font-size: 16px;
-}
-
-/* --- Ajuste para móviles --- */
-@media (max-width: 768px) {
-    .navbar {
-        grid-template-columns: 1fr 1fr; /* Logo y carrito en móvil */
-    }
-    .nav-links {
-        display: none; /* Aquí podrías añadir un menú hamburguesa luego */
-    }
-}
-
-/* Añadir esto al CSS del Navbar */
-.nav-links li a {
+    color: var(--text-white);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 1.5px;
     position: relative;
-    padding: 5px 0;
+    transition: var(--transition);
 }
 
-.nav-links li a::after {
+.nav-links a::after {
     content: '';
     position: absolute;
-    bottom: -2px;
-    left: 0;
+    bottom: -6px;
+    left: 50%;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #ffffff, transparent);
-    transition: width 0.4s ease;
+    background: var(--metallic-silver);
+    transition: var(--transition);
+    transform: translateX(-50%);
 }
 
-.nav-links li a:hover::after {
+.nav-links a:hover::after { 
+    width: 100%; 
+}
+
+.cart-container {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #151515 0%, #000 100%);
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 8vw, 70px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    background: var(--metallic-silver);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+}
+
+.hero p {
+    color: var(--gray-text);
+    max-width: 600px;
+    margin: 20px 0 35px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+.btn-hero {
+    padding: 18px 45px;
+    background: var(--metallic-silver);
+    color: #000;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    box-shadow: var(--chrome-glow);
+}
+
+.btn-hero:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255,255,255,0.4);
+}
+
+/* ===== PRODUCTOS ===== */
+.products-section { 
+    padding: 80px 5%; 
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 60px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.alternate-bg { background: #060606; }
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* ===== TARJETA DE PRODUCTO ===== */
+.product-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    overflow: hidden;
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover {
+    border-color: #555;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.product-img {
+    overflow: hidden;
+    background: #111;
+}
+
+.product-img img {
     width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-/* Innovación: Desplazamiento suave en toda la página */
-html {
-    scroll-behavior: smooth;
+.product-card:hover .product-img img {
+    transform: scale(1.1);
 }
 
-/* Evita que el Navbar tape el inicio de las secciones al saltar */
-section {
-    scroll-margin-top: 80px; /* Ajusta según la altura de tu navbar */
+.product-info {
+    padding: 25px 20px;
 }
 
-/* Estilo para secciones vacías o banners de transición */
-.alternate-bg {
-    background-color: #050505; /* Un negro ligeramente distinto para separar visualmente */
+.product-info h3 {
+    font-weight: 400;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: var(--gray-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+.price {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--text-white);
+}
+
+/* ===== SELECTOR DE CANTIDAD ===== */
+.quantity-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    color: var(--gray-text);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.qty-input {
+    width: 60px;
+    background: #000;
+    border: 1px solid #333;
+    color: #fff;
+    text-align: center;
+    padding: 8px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.qty-input:focus {
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+/* ===== BOTÓN COMPRA ===== */
+.add-to-cart {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid var(--text-white);
+    color: var(--text-white);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.add-to-cart:hover {
+    background: var(--text-white);
+    color: var(--bg-black);
+}
+
+.add-to-cart:active {
+    transform: scale(0.96);
+}
+
+/* ===== CUSTOM LAB BANNER ===== */
 .custom-lab-banner {
     text-align: center;
-    padding: 60px;
-    border: 1px dashed var(--gray-text);
-    margin: 0 5%;
+    border: 1px dashed #444;
+    padding: 80px 40px;
+    margin-top: 40px;
+    transition: var(--transition);
 }
 
-/* --- Mejora en el Navbar (Efecto Activo) --- */
-.nav-links li a:active {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255,255,255,0.8);
+.custom-lab-banner:hover {
+    border-color: #888;
+    background: rgba(255, 255, 255, 0.02);
 }
 
-/* Este efecto hace que el header se vea más pro al scrollear */
-.main-header {
-    transition: all 0.4s ease;
-    backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
-}
-
-/* Puedes usar JS para añadir esta clase al bajar */
-.main-header.scrolled {
-    padding: 10px 5%;
-    background: rgba(0, 0, 0, 0.8);
-}
-
-@keyframes fadeInUp {
+/* ===== ANIMACIONES ===== */
+@keyframes fadeUp {
     from {
-        opacity: 0;
-        transform: translateY(30px);
+        opacity: 0; 
+        transform: translateY(40px);
     }
     to {
-        opacity: 1;
+        opacity: 1; 
         transform: translateY(0);
     }
 }
 
-.product-card {
-    animation: fadeInUp 0.8s ease forwards;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .navbar { 
+        grid-template-columns: 1fr 1fr; 
+        padding: 15px 5%;
+    }
+    .nav-links { display: none; }
+    
+    .hero { height: 50vh; }
+    
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
 }
 
-.quantity-selector {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
-    font-size: 12px;
-    font-weight: 700;
-    color: #8a8a8a; /* Gris metálico */
-}
-
-.qty-input {
+/* Banner de oferta superior */
+.price-banner {
+    text-align: center;
     background: #111;
     border: 1px solid #333;
-    color: white;
-    width: 50px;
-    padding: 5px;
-    text-align: center;
+    padding: 15px;
+    margin-bottom: 40px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--gray-text);
+}
+
+.price-banner strong {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+/* Ajuste del selector para que quepan los textos largos */
+.art-select {
+    width: 95%;
+    font-size: 11px; /* Un poco más pequeña para que no se corte el precio */
+    text-transform: uppercase;
+}
+
+/* Resaltar el precio actual */
+.price {
+    color: #fff;
+    margin-top: 10px;
     font-family: 'Inter', sans-serif;
-    font-weight: bold;
-    outline: none;
+    font-weight: 900;
 }
 
-.qty-input:focus {
-    border-color: white;
+/* ===== MUSEUM GALLERY SECTION ===== */
+.museum-gallery {
+    background-color: #030303;
+    padding: 100px 5%;
+    perspective: 1000px;
 }
 
-/* Quita las flechas por defecto de algunos navegadores para un look más limpio */
-.qty-input::-webkit-inner-spin-button, 
-.qty-input::-webkit-outer-spin-button { 
-    opacity: 1; /* Puedes dejarlo en 1 para que se vean o 0 para ocultarlas */
+.gallery-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.collection-tag {
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: #666;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.museum-title {
+    font-size: clamp(30px, 5vw, 45px);
+    font-weight: 800;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #fff 0%, #777 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.museum-line {
+    width: 60px;
+    height: 1px;
+    background: #444;
+    margin: 20px auto;
+}
+
+/* Placa de Oferta */
+.museum-offer-plaque {
+    max-width: 500px;
+    margin: 0 auto 60px;
+    border: 1px solid #222;
+    padding: 15px;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, transparent, #0a0a0a, transparent);
+}
+
+.museum-offer-plaque .highlight {
+    color: #fff;
+    font-weight: 800;
+}
+
+/* Grid de Museo */
+.museum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 60px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Card Estilo Museo */
+.museum-card {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: museumEntry 1s var(--delay) forwards;
+    transition: var(--transition);
+}
+
+@keyframes museumEntry {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.artwork-container {
+    position: relative;
+    padding: 20px;
+    background: #080808;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.frame-border {
+    border: 1px solid #1a1a1a;
+    position: relative;
+    z-index: 2;
+    line-height: 0;
+}
+
+.art-img {
+    width: 100%;
+    filter: grayscale(20%) contrast(1.1);
+    transition: transform 1s ease, filter 0.5s;
+}
+
+/* Efecto Foco de Luz */
+.spotlight {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, transparent 60%);
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 3;
+    transition: opacity 0.5s;
+}
+
+/* Hover Effects */
+.museum-card:hover .artwork-container {
+    transform: scale(1.02) rotateX(2deg);
+}
+
+.museum-card:hover .art-img {
+    filter: grayscale(0%) contrast(1);
+    transform: scale(1.05);
+}
+
+/* Datos de la Obra */
+.museum-data {
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.art-name {
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.museum-select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #333;
+    color: #888;
+    padding: 10px;
+    font-size: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    cursor: pointer;
+    text-align-last: center;
+}
+
+.museum-price {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.museum-btn {
+    width: 100%;
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 15px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.museum-btn:hover {
+    background: #888;
+    letter-spacing: 4px;
 }
